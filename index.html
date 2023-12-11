@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Display and Processing</title>
+</head>
+<body>
+    <!-- Table 1 Display -->
+    <h2>Table 1</h2>
+    <table id="table1">
+        <!-- Table 1 will be populated dynamically using JavaScript -->
+    </table>
+
+    <!-- Table 2 Display -->
+    <h2>Table 2</h2>
+    <table id="table2">
+        <tr>
+            <th>Category</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Alpha</td>
+            <td id="alpha-value"><!-- Display processed alpha value here --></td>
+        </tr>
+        <tr>
+            <td>Beta</td>
+            <td id="beta-value"><!-- Display processed beta value here --></td>
+        </tr>
+        <tr>
+            <td>Charlie</td>
+            <td id="charlie-value"><!-- Display processed charlie value here --></td>
+        </tr>
+    </table>
+
+    <script>
+        const tableData = {
+            'A1': 41, 'A2': 18, 'A3': 21, 'A4': 63, 'A5': 2, 'A6': 53, 'A7': 5, 'A8': 57, 'A9': 60, 'A10': 93,
+            'A11': 28, 'A12': 3, 'A13': 90, 'A14': 39, 'A15': 80, 'A16': 88, 'A17': 49, 'A18': 60, 'A19': 26, 'A20': 28
+            // Add your CSV data here for Table 1
+        };
+
+        // Function to populate Table 1
+        function populateTable1() {
+            const table1 = document.getElementById('table1');
+            for (const symbol in tableData) {
+                const row = table1.insertRow();
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                cell1.innerHTML = symbol;
+                cell2.innerHTML = tableData[symbol];
+            }
+        }
+
+        // Function to display processed values in Table 2
+        function displayProcessedValues(alpha, beta, charlie) {
+            document.getElementById('alpha-value').textContent = alpha;
+            document.getElementById('beta-value').textContent = beta;
+            document.getElementById('charlie-value').textContent = charlie;
+        }
+
+        // Call the functions to populate Table 1 and display processed values in Table 2
+        populateTable1();
+        displayProcessedValues(30, 16.0, 270);
+    </script>
+</body>
+</html>
